@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Posting & Funding Stats</title>
+
+<style>
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1e40af;
+  --bg: #f4f7ff;
+  --card: #ffffff;
+  --border: #e0e7ff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --success: #16a34a;
+  --danger: #dc2626;
+}
+
+/* Base */
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+}
+
+/* Header */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+  color: white;
+  padding: 18px 40px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-section img {
+  height: 40px;
+}
+
+.heading {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* Container */
+.container {
+  padding: 30px 40px;
+}
+
+/* Card */
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.1);
+  border: 1px solid var(--border);
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+thead {
+  background: #eef2ff;
+}
+
+th {
+  padding: 14px;
+  font-weight: 600;
+  color: var(--primary-dark);
+  border-bottom: 2px solid var(--border);
+}
+
+td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Row styles */
+tbody tr:nth-child(even) {
+  background: #f8faff;
+}
+
+tbody tr:hover {
+  background: #eef4ff;
+}
+
+/* Status */
+.badge {
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.success {
+  background: #e7f8ee;
+  color: var(--success);
+}
+
+.danger {
+  background: #fde8e8;
+  color: var(--danger);
+}
+
+/* Clickable Discrepancy */
+.clickable {
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.clickable:hover {
+  color: var(--primary-dark);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Header -->
+<div class="navbar">
+  <div class="logo-section">
+    <img src="SEW.png" alt="SEW Logo">
+    <div></div>
+  </div>
+
+  <div class="heading">Posting & Funding Statistics Dashboard</div>
+
+  <div></div>
+</div>
+
+<!-- Content -->
+<div class="container">
+  <div class="card">
+
+    <table>
+      <thead>
+        <tr>
+          <th>Merchant ID (MID)</th>
+          <th>Payment Report Count</th>
+          <th>Payment Report Amount ($)</th>
+          <th>Deposit Count</th>
+          <th>Deposit Amount ($)</th>
+          <th>Posting Discrepancy Count</th>
+          <th>Posting Discrepancy Amount ($)</th>
+          <th>ECP Amount ($)</th>
+          <th>Chargeback Amount ($)</th>
+          <th>Expected Funding ($)</th>
+          <th>Actual Funding ($)</th>
+          <th>Funding Discrepancy ($)</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>A</td>
+          <td>20</td>
+          <td>$1000</td>
+          <td>22</td>
+          <td>$1200</td>
+          <td><a href="unposted.html" target="_blank" class="clickable">2</a></td>
+          <td>$200</td>
+          <td>$50</td>
+          <td>$0</td>
+          <td>$1200</td>
+          <td>$1200</td>
+          <td>$0</td>
+          <td><span class="badge success">Completed</span></td>
+        </tr>
+
+        <tr>
+          <td>B</td>
+          <td>18</td>
+          <td>$900</td>
+          <td>20</td>
+          <td>$1000</td>
+          <td><a href="unposted.html" target="_blank" class="clickable">2</a></td>
+          <td>$100</td>
+          <td>$40</td>
+          <td>$10</td>
+          <td>$1030</td>
+          <td>$1000</td>
+          <td>$30</td>
+          <td><span class="badge danger">Mismatch</span></td>
+        </tr>
+
+        <tr>
+          <td>C</td>
+          <td>25</td>
+          <td>$1400</td>
+          <td>25</td>
+          <td>$1400</td>
+          <td><a href="unposted.html" target="_blank" class="clickable">0</a></td>
+          <td>$0</td>
+          <td>$60</td>
+          <td>$0</td>
+          <td>$1400</td>
+          <td>$1400</td>
+          <td>$0</td>
+          <td><span class="badge success">Completed</span></td>
+        </tr>
+
+        <!-- Add more rows similarly -->
+        <tr><td>A</td><td>15</td><td>$800</td><td>17</td><td>$900</td><td><a href="unposted.html" target="_blank" class="clickable">2</a></td><td>$100</td><td>$30</td><td>$5</td><td>$935</td><td>$900</td><td>$35</td><td><span class="badge danger">Mismatch</span></td></tr>
+        <tr><td>B</td><td>30</td><td>$2000</td><td>30</td><td>$2000</td><td><a href="unposted.html" target="_blank" class="clickable">0</a></td><td>$0</td><td>$80</td><td>$0</td><td>$2000</td><td>$2000</td><td>$0</td><td><span class="badge success">Completed</span></td></tr>
+        <tr><td>C</td><td>22</td><td>$1300</td><td>24</td><td>$1350</td><td><a href="unposted.html" target="_blank" class="clickable">2</a></td><td>$50</td><td>$55</td><td>$10</td><td>$1395</td><td>$1350</td><td>$45</td><td><span class="badge danger">Mismatch</span></td></tr>
+
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+</body>
+</html>

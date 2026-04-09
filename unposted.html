@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unposted Transactions</title>
+
+<style>
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1e40af;
+  --bg: #f4f7ff;
+  --card: #ffffff;
+  --border: #e0e7ff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --success: #16a34a;
+}
+
+/* Base */
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+}
+
+/* Header */
+.navbar {
+  background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+  color: white;
+  padding: 16px 40px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Container */
+.container {
+  padding: 30px 40px;
+}
+
+/* Top Section */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Batch Time */
+.batch-time {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--primary-dark);
+}
+
+/* Button */
+.btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: var(--primary-dark);
+}
+
+.btn-success {
+  background: var(--success);
+}
+
+/* Card */
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.1);
+  border: 1px solid var(--border);
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+thead {
+  background: #eef2ff;
+}
+
+th {
+  padding: 14px;
+  font-weight: 600;
+  color: var(--primary-dark);
+  border-bottom: 2px solid var(--border);
+}
+
+td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+tbody tr:nth-child(even) {
+  background: #f8faff;
+}
+
+tbody tr:hover {
+  background: #eef4ff;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Header -->
+<div class="navbar">
+  Unposted Transactions
+</div>
+
+<div class="container">
+
+  <!-- Top Controls -->
+  <div class="top-bar">
+    <div class="batch-time">
+      Batch Close Time: <strong>9:00 AM – 9:00 PM ET</strong>
+    </div>
+
+    <button class="btn btn-success" onclick="postAll()">
+      Post All to CIS
+    </button>
+  </div>
+
+  <!-- Table -->
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th>Transaction ID</th>
+          <th>Amount ($)</th>
+          <th>Posting Status</th>
+          <th>Retry Count</th>
+          <th>Failure Reason</th>
+          <th>Last Retry Time</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>TXN001</td>
+          <td>$120</td>
+          <td>Failed</td>
+          <td>3</td>
+          <td>API Timeout</td>
+          <td>08:45 AM</td>
+          <td><button class="btn" onclick="postSingle('TXN001')">Post to CIS</button></td>
+        </tr>
+
+        <tr>
+          <td>TXN002</td>
+          <td>$250</td>
+          <td>Failed</td>
+          <td>2</td>
+          <td>Invalid Account</td>
+          <td>08:30 AM</td>
+          <td><button class="btn" onclick="postSingle('TXN002')">Post to CIS</button></td>
+        </tr>
+
+        <tr>
+          <td>TXN003</td>
+          <td>$90</td>
+          <td>Failed</td>
+          <td>5</td>
+          <td>Service Unavailable</td>
+          <td>08:10 AM</td>
+          <td><button class="btn" onclick="postSingle('TXN003')">Post to CIS</button></td>
+        </tr>
+
+        <tr>
+          <td>TXN004</td>
+          <td>$400</td>
+          <td>Failed</td>
+          <td>1</td>
+          <td>Network Error</td>
+          <td>08:50 AM</td>
+          <td><button class="btn" onclick="postSingle('TXN004')">Post to CIS</button></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<!-- JS (Simulation) -->
+<script>
+function postSingle(txnId) {
+  alert("Posting " + txnId + " to CIS...");
+}
+
+function postAll() {
+  alert("Posting ALL transactions to CIS...");
+}
+</script>
+
+</body>
+</html>
